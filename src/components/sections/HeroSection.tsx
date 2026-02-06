@@ -1,10 +1,22 @@
 import Button from '../ui/Button';
 
-export default function HeroSection() {
+interface HeroSectionProps {
+    onOpenRequestAccess?: () => void;
+}
+
+export default function HeroSection({ onOpenRequestAccess }: HeroSectionProps) {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-dark-900 to-dark-900"></div>
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="/videoframe_369.png"
+                    alt="Background"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40"></div>
+            </div>
 
             {/* Content */}
             <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
@@ -35,7 +47,7 @@ export default function HeroSection() {
                 </p>
 
                 {/* CTA Button */}
-                <Button variant="primary" className="text-lg px-8 py-3">
+                <Button variant="primary" className="text-lg px-8 py-3" onClick={onOpenRequestAccess}>
                     Request Access →
                 </Button>
 

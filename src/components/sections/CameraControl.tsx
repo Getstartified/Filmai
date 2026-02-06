@@ -1,6 +1,6 @@
 export default function CameraControl() {
     return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/30">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-dark-800/30">
             <div className="max-w-4xl mx-auto">
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6">
@@ -21,16 +21,18 @@ export default function CameraControl() {
                 </p>
 
                 {/* Interface Preview */}
-                <div className="relative aspect-video bg-dark-900 rounded-xl overflow-hidden border border-white/10">
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-600">
-                        {/* Placeholder for camera control interface */}
-                        <div className="text-center">
-                            <svg className="w-24 h-24 mx-auto mb-4 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
-                            </svg>
-                            <p className="text-sm">Camera Control Interface Preview</p>
-                        </div>
-                    </div>
+                <div className="relative aspect-video bg-dark-900 rounded-xl overflow-hidden border border-white/10 transition-transform duration-700 hover:scale-[1.02]">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                    >
+                        <source src="/3-3d-compmp4.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900/50 to-transparent pointer-events-none"></div>
                 </div>
 
                 {/* Additional info */}

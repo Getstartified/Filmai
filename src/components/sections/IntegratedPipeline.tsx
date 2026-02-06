@@ -1,6 +1,6 @@
 export default function IntegratedPipeline() {
     return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-10 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6">
@@ -16,35 +16,25 @@ export default function IntegratedPipeline() {
 
                 {/* Description */}
                 <p className="text-gray-400 max-w-2xl mb-8">
-                    No more juggling disconnected tools. Image generation, video generation, and world models—
+                    No more juggling disconnected tools. Image generation, video generation, and world models-
                     all in one place, with a built-in timeline.
                 </p>
 
-                {/* Thumbnails */}
-                <div className="flex gap-2 mb-4 overflow-x-auto pb-2">
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                        <div
-                            key={i}
-                            className="flex-shrink-0 w-24 h-16 bg-dark-800 rounded border border-white/10"
-                        />
-                    ))}
-                </div>
+
 
                 {/* Timeline Interface */}
-                <div className="relative aspect-[21/9] bg-dark-900 rounded-xl overflow-hidden border border-white/10">
-                    <div className="absolute inset-0 p-4">
-                        {/* Timeline tracks */}
-                        <div className="space-y-2">
-                            {[1, 2, 3].map((track) => (
-                                <div key={track} className="h-12 bg-dark-800 rounded relative overflow-hidden">
-                                    <div
-                                        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-purple-600/50 to-blue-600/50 rounded"
-                                        style={{ width: `${Math.random() * 60 + 20}%` }}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                <div className="relative aspect-[21/9] bg-dark-900 rounded-xl overflow-hidden border border-white/10 transition-transform duration-700 hover:scale-[1.02] shadow-2xl shadow-purple-900/10">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                    >
+                        <source src="/1-integrated-comp.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900/20 to-transparent pointer-events-none"></div>
                 </div>
 
                 {/* Additional info */}

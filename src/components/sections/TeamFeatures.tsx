@@ -1,8 +1,12 @@
 import Button from '../ui/Button';
 
-export default function TeamFeatures() {
+interface TeamFeaturesProps {
+    onOpenRequestAccess?: () => void;
+}
+
+export default function TeamFeatures({ onOpenRequestAccess }: TeamFeaturesProps) {
     return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800/30">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-dark-800/30">
             <div className="max-w-4xl mx-auto">
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6">
@@ -19,31 +23,22 @@ export default function TeamFeatures() {
                 {/* Description */}
                 <p className="text-gray-400 max-w-2xl mb-8">
                     Share prompts, edits, and feedback in real time. Explore ideas together the way you do in
-                    Figma—but for generative film.
+                    Figma-but for generative film.
                 </p>
 
                 {/* Collaboration Interface Preview */}
-                <div className="relative aspect-[21/9] bg-dark-900 rounded-xl overflow-hidden border border-white/10 mb-12">
-                    <div className="absolute inset-0 p-4">
-                        {/* Mock collaborative timeline with comments */}
-                        <div className="space-y-2">
-                            {[1, 2, 3].map((track) => (
-                                <div key={track} className="h-12 bg-dark-800 rounded relative overflow-hidden">
-                                    <div
-                                        className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-green-600/50 to-blue-600/50 rounded"
-                                        style={{ width: `${Math.random() * 60 + 20}%` }}
-                                    />
-                                    {/* Comment markers */}
-                                    {track === 2 && (
-                                        <>
-                                            <div className="absolute top-1 left-1/4 w-3 h-3 bg-pink-500 rounded-full" />
-                                            <div className="absolute top-1 left-1/2 w-3 h-3 bg-yellow-500 rounded-full" />
-                                        </>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                <div className="relative aspect-[21/9] bg-dark-900 rounded-xl overflow-hidden border border-white/10 mb-12 transition-transform duration-700 hover:scale-[1.02] shadow-2xl shadow-purple-900/10">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                    >
+                        <source src="/2-collab-comp.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900/20 to-transparent pointer-events-none"></div>
                 </div>
 
                 {/* CTA Section */}
@@ -55,7 +50,7 @@ export default function TeamFeatures() {
                         Join the filmmakers, studios, and agencies already using Filmai
                         to create that gets noticed.
                     </p>
-                    <Button variant="primary">Request Access</Button>
+                    <Button variant="primary" onClick={onOpenRequestAccess}>Request Access</Button>
                 </div>
             </div>
         </section>

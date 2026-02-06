@@ -3,9 +3,10 @@ import Button from '../ui/Button';
 interface CTASectionProps {
     title: string;
     description: string;
+    onOpenRequestAccess?: () => void;
 }
 
-export default function CTASection({ title, description }: CTASectionProps) {
+export default function CTASection({ title, description, onOpenRequestAccess }: CTASectionProps) {
     return (
         <section className="py-16 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
@@ -16,7 +17,7 @@ export default function CTASection({ title, description }: CTASectionProps) {
                     <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
                         {description}
                     </p>
-                    <Button variant="primary">Request Access</Button>
+                    <Button variant="primary" onClick={onOpenRequestAccess}>Request Access</Button>
                 </div>
             </div>
         </section>

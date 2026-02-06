@@ -1,4 +1,8 @@
-export default function Footer() {
+interface FooterProps {
+    onOpenRequestAccess?: () => void;
+}
+
+export default function Footer({ onOpenRequestAccess }: FooterProps) {
     const partners = [
         'KingAI', 'MOONVALLEY', 'Veo 3', 'Runway', 'Wan', 'MINIMAX', 'Sora'
     ];
@@ -24,7 +28,7 @@ export default function Footer() {
                 </div>
 
                 {/* Footer Navigation */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 pt-12 border-t border-white/10">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12 pt-12 border-t border-white/10">
                     <div>
                         <h3 className="text-white font-semibold mb-4">COMPANY</h3>
                         <ul className="space-y-2">
@@ -32,6 +36,11 @@ export default function Footer() {
                                 <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
                                     Pricing
                                 </a>
+                            </li>
+                            <li>
+                                <button onClick={onOpenRequestAccess} className="text-gray-400 hover:text-white transition-colors text-sm text-left">
+                                    Request Access
+                                </button>
                             </li>
                             <li>
                                 <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
@@ -61,24 +70,8 @@ export default function Footer() {
                         <h3 className="text-white font-semibold mb-4">LEGAL</h3>
                         <ul className="space-y-2">
                             <li>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                                <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
                                     Terms & Conditions
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 className="text-white font-semibold mb-4">CONNECT</h3>
-                        <ul className="space-y-2">
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                                    Instagram
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
-                                    LinkedIn
                                 </a>
                             </li>
                         </ul>

@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-export default function Navbar() {
+const navLinks = [
+    { name: 'Home', href: '#' },
+    { name: 'Features', href: '#' },
+    { name: 'Pricing', href: '#' },
+    { name: 'Contact', href: '#' },
+];
+
+export default function Navbar({ onOpenRequestAccess }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState('Home');
 
@@ -13,15 +20,6 @@ export default function Navbar() {
         { name: 'Pricing', href: '#pricing' },
         { name: 'Log In', href: '#login' },
     ];
-
-    // Update active link on scroll
-    useEffect(() => {
-        const handleScroll = () => {
-            // Logic could be added here to change active link based on scroll position
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     return (
         <motion.nav
@@ -74,6 +72,7 @@ export default function Navbar() {
                         {/* Right Section: CTA Button */}
                         <div className="hidden md:flex items-center">
                             <button
+                                onClick={onOpenRequestAccess}
                                 className="bg-[#7A8B6F] hover:bg-[#687a5e] text-white px-5 py-2 rounded-xl transition-all duration-200 text-xs font-bold uppercase tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                             >
                                 Request Access
@@ -115,7 +114,10 @@ export default function Navbar() {
                             ))}
                             <button
                                 className="w-full text-center bg-[#7A8B6F] text-white px-6 py-3 rounded-xl transition-colors duration-200 mt-4 text-sm font-bold uppercase tracking-wider"
-                                onClick={() => setIsMenuOpen(false)}
+                                onClick={() => {
+                                    setIsMenuOpen(false);
+                                    if (onOpenRequestAccess) onOpenRequestAccess();
+                                }}
                             >
                                 Request Access
                             </button>

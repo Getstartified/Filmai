@@ -16,9 +16,15 @@ export default function VideoShowcase() {
 
                 {/* Video Player */}
                 <div className="relative aspect-video bg-dark-800 rounded-2xl overflow-hidden border border-white/10 mb-6 group cursor-pointer">
-                    {/* Placeholder for video */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all">
+                    <img
+                        src="/video_showcase_ui_1770369631217.png"
+                        alt="Filmai Video Editor Interface"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all scale-100 group-hover:scale-110">
                             <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z" />
                             </svg>
@@ -33,7 +39,7 @@ export default function VideoShowcase() {
 
                 {/* Description */}
                 <p className="text-center text-gray-400 max-w-3xl mx-auto">
-                    Most AI tools are built around prompts and bases—not the way filmmakers think.
+                    Most AI tools are built around prompts and bases-not the way filmmakers think.
                     We built Filmai to give you direct control.
                 </p>
             </div>
