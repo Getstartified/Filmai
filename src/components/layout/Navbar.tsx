@@ -4,22 +4,19 @@ import { useState } from 'react';
 
 const navLinks = [
     { name: 'Home', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Pricing', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'Features', href: '#features' },
+    { name: 'Showcase', href: '#showcase' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'Log In', href: '#login' },
 ];
 
-export default function Navbar({ onOpenRequestAccess }) {
+interface NavbarProps {
+    onOpenRequestAccess?: () => void;
+}
+
+export default function Navbar({ onOpenRequestAccess }: NavbarProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeLink, setActiveLink] = useState('Home');
-
-    const navLinks = [
-        { name: 'Home', href: '#' },
-        { name: 'Features', href: '#features' },
-        { name: 'Showcase', href: '#showcase' },
-        { name: 'Pricing', href: '#pricing' },
-        { name: 'Log In', href: '#login' },
-    ];
 
     return (
         <motion.nav
