@@ -1,8 +1,9 @@
 interface FooterProps {
     onOpenRequestAccess?: () => void;
+    onOpenTerms?: () => void;
 }
 
-export default function Footer({ onOpenRequestAccess }: FooterProps) {
+export default function Footer({ onOpenRequestAccess, onOpenTerms }: FooterProps) {
     const partners = [
         'KingAI', 'MOONVALLEY', 'Veo 3', 'Runway', 'Wan', 'MINIMAX', 'Sora'
     ];
@@ -70,9 +71,12 @@ export default function Footer({ onOpenRequestAccess }: FooterProps) {
                         <h3 className="text-white font-semibold mb-4">LEGAL</h3>
                         <ul className="space-y-2">
                             <li>
-                                <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
+                                <button
+                                    onClick={onOpenTerms}
+                                    className="text-gray-400 hover:text-white transition-colors text-sm text-left"
+                                >
                                     Terms & Conditions
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>
